@@ -7,7 +7,8 @@
     Helvetica Neue, PingFang SC, 'Hiragino Sans GB', 'Microsoft YaHei',
     '\u5fae\u8f6f\u96c5\u9ed1', '微软雅黑', Arial, sans-serif;
   
-  font-size: calc(100vw / 19.2);
+  // font-size: calc(100vw / 19.2);
+  font-size: 12px;
   font-weight: 400;
 
   --adm-popover-z-index: 9999;
@@ -18,45 +19,45 @@
 }
 
 // pc
-@media screen and (max-width: 1440px) {
-  :root {
-    font-size: calc(100vw / 19.2);
-  }
-}
+// @media screen and (max-width: 1440px) {
+//   :root {
+//     font-size: calc(100vw / 19.2);
+//   }
+// }
 
-// 适配移动端竖屏、pad竖屏 md:portrait:
-@media screen and (max-width: 1024px) {
-  :root {
-    font-size: calc(100vw / 7.5);
-  }
-  body {
-  }
-}
+// // 适配移动端竖屏、pad竖屏 md:portrait:
+// @media screen and (max-width: 1024px) {
+//   :root {
+//     font-size: calc(100vw / 7.5);
+//   }
+//   body {
+//   }
+// }
 
 // 移动端 横屏
-@media screen and (max-width: 768px) and (orientation: landscape) {
-  :root {
-    font-size: calc(100vw / 9.2);
-  }
-}
+// @media screen and (max-width: 768px) and (orientation: landscape) {
+//   :root {
+//     font-size: calc(100vw / 9.2);
+//   }
+// }
 
-// pad 竖屏
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  :root {
-    font-size: calc(100vw / 12);
-  }
-}
+// // pad 竖屏
+// @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+//   :root {
+//     font-size: calc(100vw / 12);
+//   }
+// }
 
-// /* ipad横屏 */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1180px) and (orientation: landscape) {
-  :root {
-    font-size: calc(100vw / 14);
-  }
+// // /* ipad横屏 */
+// @media only screen and (min-device-width: 768px) and (max-device-width: 1180px) and (orientation: landscape) {
+//   :root {
+//     font-size: calc(100vw / 14);
+//   }
 
-  body {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-}
+//   body {
+//     background-color: rgba(0, 0, 0, 0.6);
+//   }
+// }
 // pad 横屏字体太小
 
 // tailwindcss px
