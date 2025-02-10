@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
-import "@/assets/styles/global.scss";
+import type { Metadata, Viewport } from "next";
+import "@/assets/styles/globals.scss";
+import { Suspense } from "react";
 
 
 export const metadata: Metadata = {
@@ -14,11 +15,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta httpEquiv="x-ua-compatible" content="IE=edge, chrome=1"/>
+        <meta name="viewport" content='viewport-fit=cover' />
+      </head>
       <body
         className={``}
       >
-        {children}
+        <Suspense fallback={<p>Loading...</p>}>
+          {children}
+        </Suspense>
       </body>
     </html>
   );
 }
+
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};

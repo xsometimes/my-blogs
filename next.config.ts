@@ -2,6 +2,20 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: 'standalone',
+  // assetPrefix: isProd ? `${process.env.NEXT_PUBLIC_BASE_PATH}/` : '',
+  // assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
+  // basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  // exportTrailingSlash: true,
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    return config;
+  },
+
+  productionBrowserSourceMaps: false, // Enable source map if needed
+  compress: true,
+
+  
+
 
   async rewrites() {
     return [

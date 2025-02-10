@@ -22,17 +22,17 @@ export default {
       //   },
 
       // },
-      // screens: {
-      //   'sm': {
-      //     'max': '768px'
-      //   },
-      //   'md': {
-      //     'max': '1024px'
-      //   },
-      //   'xl': {
-      //     'max': '1440px'
-      //   }
-      // },
+      screens: {
+        'sm': {
+          'max': '768px'
+        },
+        'md': {
+          'max': '1024px'
+        },
+        'xl': {
+          'max': '1440px'
+        }
+      },
       // backgroundImage: {
       //   'primary-gradient-linear':
       //     'linear-gradient( 180deg, #E0ECFF 4%, #F7FAFF 47%, #FFFFFF 98%);',

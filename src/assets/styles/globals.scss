@@ -92,3 +92,7 @@ a, a:hover, a:visited {
 ::-webkit-scrollbar {
   display: none;
 }
+
+.adm-capsule-tabs-tab-wrapper {
+  flex: unset !important;
+}
