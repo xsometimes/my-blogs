@@ -1,5 +1,8 @@
 
-1. md预览组件  [react-markdown](https://github.com/remarkjs/react-markdown)
+1. md预览组件  
+[commonmark](https://github.com/commonmark/commonmark.js)
+[react-markdown](https://github.com/remarkjs/react-markdown)
+[remark-gfm](https://github.com/remarkjs/remark-gfm)
 2. tag
 
 

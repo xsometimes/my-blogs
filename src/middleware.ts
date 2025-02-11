@@ -36,7 +36,7 @@ export const config = {
    */
   matcher: [
     '/',
-    '/((?!api|_next/static|_next/image|_next/webpack-hmr|assets/images|favicon.ico).*)',
+    '/((?!api|mozillaPdfjs|_next/static|_next/image|_next/webpack-hmr|assets/images|favicon.ico).*)',
   ],
 };
 
