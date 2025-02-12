@@ -18,15 +18,18 @@ const meowFetch = Object.create(null);
 
 HTTP_METHOD.forEach(method => {
 
-  meowFetch[method] = async (path: string, { data, query, timeout = 5000 }: {
-    data?: Record<string, any>,
-    query?: Record<string, string>,
-    timeout?: number,
+  meowFetch[method] = async (path: string, { data, query, timeout = 5000, isWithAuthorization = false, isDownload = false }: {
+    data?: Record<string, any>;
+    query?: Record<string, string>;
+    timeout?: number;
+    isWithAuthorization?: boolean;
+    isDownload?: boolean;
   } = {}) => {
 
     let url = path;
 
     const opts: RequestInit = {
+      
       ...COMMON_OPTS,
      method,
     };
@@ -39,7 +42,13 @@ HTTP_METHOD.forEach(method => {
       opts.body = qs.stringify(data);
     }
 
-    const res = await fetchWithTimeout(url, opts, timeout);
+    const res = await fetchWithTimeout({
+      options: opts,
+      url, 
+      timeout,
+      isWithAuthorization,
+      isDownload
+    });
     return (await res.json());
   };
 });
@@ -50,13 +59,47 @@ const buildQueryString = (query: Record<string, string>): string => {
     .join('&');
 };
 
+interface IFetchWithTimeout {
+  url: string;
+  options?: RequestInit;
+  timeout?: number;
+  isWithAuthorization?: boolean;
+  isDownload?: boolean;
+}
+
 // nodejs和window上都有setTimeout
-const fetchWithTimeout = async (url: string, options: RequestInit, timeout: number, isDownload: boolean = false) => {
+const fetchWithTimeout = async ({
+  url,
+  options,
+  timeout,
+  isWithAuthorization,
+  isDownload,
+}: IFetchWithTimeout) => {
   const controller = new AbortController();
   const signal = controller.signal;
   const id = setTimeout(() => controller.abort(), timeout);
   try {
-    return await fetch(url, { ...options, signal }).then(res => {
+    if (!url) {
+      throw new Error('fetch url is required');
+    }
+    
+
+    if (!options || !options.method) {
+      throw new Error('fetch method is required');
+    }
+
+    const opts: RequestInit = {
+      ...COMMON_OPTS,
+      ...options,
+    };
+
+    if (isWithAuthorization) {
+      opts.headers = {
+        ...opts.headers,
+        'Authorization': 'Bearer ' + localStorage.getItem('meowAckToken'),
+      };
+    }
+    return await fetch(url, { ...opts, signal }).then(res => {
 
       if (!res.ok) {
         throw new Error(`HTTP error! Status: ${res.status}`);
@@ -84,3 +127,9 @@ const fetchWithTimeout = async (url: string, options: RequestInit, timeout: numb
 };
 
 export default meowFetch;
+
+
+/**
+ * isDownload 是否为文件需要下载，默认为false
+ * isWithAuthorization 是否为需要授权，默认为false，暂时需要在客户端应用
+ */
