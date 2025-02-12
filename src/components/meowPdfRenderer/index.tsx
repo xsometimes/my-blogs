@@ -1,5 +1,5 @@
 'use client';
-import { getPathWithBase } from "@/helpers";
+import { getPathWithBase } from "@/utils";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
