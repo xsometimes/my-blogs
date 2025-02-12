@@ -1,4 +1,5 @@
 import qs from 'qs';
+import { storageKeys } from './storageKeys';
 
 const HTTP_METHOD = ['get', 'post', 'put', 'patch', 'delete'];
 // can send data method
@@ -96,7 +97,7 @@ const fetchWithTimeout = async ({
     if (isWithAuthorization) {
       opts.headers = {
         ...opts.headers,
-        'Authorization': 'Bearer ' + localStorage.getItem('meowAckToken'),
+        'Authorization': 'Bearer ' + localStorage.getItem(storageKeys.meowAckToken),
       };
     }
     return await fetch(url, { ...opts, signal }).then(res => {
@@ -132,4 +133,18 @@ export default meowFetch;
 /**
  * isDownload 是否为文件需要下载，默认为false
  * isWithAuthorization 是否为需要授权，默认为false，暂时需要在客户端应用
+ *  服务端 改成 cookie方式
+ * content-type 少处理了一种 formData的形式
  */
+
+
+
+
+/**
+ * [authentication](https://nextjs.org/docs/app/building-your-application/authentication#auth-libraries)
+ * 
+ * [Next.js 极简实现 Authentication(server action + jwt)](https://juejin.cn/post/7383934765370621961?searchId=20250212154537C3FABC89448A24B46215#heading-10)
+ */
+
+
+

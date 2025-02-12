@@ -20,3 +20,8 @@ declare enum ELocale {
   zh = 'zh_CN',
   en = 'en_US',
 }
+
+declare interface ITag {
+  value: string;
+  key: string;
+}

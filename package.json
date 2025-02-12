@@ -6,14 +6,16 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "buildArticles": "node ./scripts/buildArticles.mjs /src/data/"
   },
   "dependencies": {
     "commonmark": "^0.31.2",
     "next": "15.1.6",
     "qs": "^6.14.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
