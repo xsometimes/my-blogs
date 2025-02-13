@@ -139,21 +139,3 @@ function getAllFolders(rootFolder) {
   traverseFolder(rootFolder);
   return folders;
 }
-
-
-function delFoldersByName(fileName, rootFolder) {
-  
-
-  function traverseFolder(folderPath) {
-    const files = readdirSync(folderPath);
-    files.forEach(file => {
-      const filePath = path.join(folderPath, file);
-      const fileStat = statSync(filePath);
-      if (fileStat.isDirectory() && file === fileName) {
-        
-      }
-    });
-  }
-
-  traverseFolder(rootFolder);
-}

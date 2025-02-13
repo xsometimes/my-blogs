@@ -6,6 +6,14 @@
 2. tag
 
 
+3. seo 
+- 每一篇文章的meta title应该变为文章的title
+
+
+
+6. ai赋能
+- 问答系统：读者可以通过输入问题，由 AI 快速给出回答和相关文章推荐。
+- 多语言翻译：将您的文章自动翻译成多种语言，扩大读者群体。
 
 
 
@@ -14,6 +22,8 @@
 2. 学习笔记
 
 试下自定义  [custom-app](https://nextjs.org/docs/pages/building-your-application/routing/custom-app)
+
+[css 主题](https://tailwindcss.com/docs/theme#using-a-custom-theme)
 
 
 博客参考

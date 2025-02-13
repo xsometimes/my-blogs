@@ -1,0 +1,10 @@
+
+
+.meow-header-item {
+  &.active {
+    > a {
+      color: --color-primary !important;
+    }
+  }
+
+}
