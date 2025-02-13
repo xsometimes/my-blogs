@@ -1,6 +1,7 @@
 // 'use client';
 import type { Metadata, ResolvingMetadata } from 'next'
 import MeowMdRenderer from "@/components/meowMdRenderer";
+import { Suspense } from 'react';
 type Props = {
   params: Promise<{ id: string }>
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
@@ -41,9 +42,13 @@ export async function generateMetadata(
 //     description: `article.content.slice(0, 150)`
 //   };
 // };
+
+// MeowMdRenderer 下次改成动态加载
 export default function MdPage() {
   return (<>
   <p className="text-[32px]">dddd render</p>
-  <MeowMdRenderer />
+  <Suspense fallback={<p>Loading...</p>}>
+          <MeowMdRenderer />
+        </Suspense>
   </>);
 }
