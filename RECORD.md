@@ -31,4 +31,15 @@
 
 
  还有 案例列表，咋处理，自己写啰
- 
+
+
+
+
+
+ ## 使用
+ 1. 修改增加一次文档 + 跑npm run buildArticles 
+ 2. 删除 .DS_Store
+```cmd
+ls -la
+find . -name .DS_Store -type f -delete
+```

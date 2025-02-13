@@ -1,5 +1,5 @@
 import path from "path";
-import { writeFileSync, readFileSync, readdirSync, statSync, existsSync } from "fs";
+import { writeFileSync, readFileSync, readdirSync, statSync, existsSync,  } from "fs";
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -138,4 +138,22 @@ function getAllFolders(rootFolder) {
 
   traverseFolder(rootFolder);
   return folders;
+}
+
+
+function delFoldersByName(fileName, rootFolder) {
+  
+
+  function traverseFolder(folderPath) {
+    const files = readdirSync(folderPath);
+    files.forEach(file => {
+      const filePath = path.join(folderPath, file);
+      const fileStat = statSync(filePath);
+      if (fileStat.isDirectory() && file === fileName) {
+        
+      }
+    });
+  }
+
+  traverseFolder(rootFolder);
 }
