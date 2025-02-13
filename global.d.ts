@@ -25,3 +25,15 @@ declare interface ITag {
   value: string;
   key: string;
 }
+
+declare interface IArticle {
+  id: string
+  title: string;
+  createTime: number;
+  updateTime: number;
+  url: string;
+  size: number | bigint,
+  fileType: string;
+  tags: string[];
+}
+
