@@ -7,6 +7,22 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
+// 生成所有可能的静态路径
+export async function generateStaticParams() {
+  const res = await fetch('https://api.example.com/posts');
+  const posts = await res.json();
+  return posts.map(post => ({
+      id: post.id.toString()
+  }));
+}
+
+// 模拟从 API 获取文章数据
+async function getPostData(id) {
+  const res = await fetch(`https://api.example.com/posts/${id}`);
+  const post = await res.json();
+  return post;
+}
+
 export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
@@ -44,7 +60,9 @@ export async function generateMetadata(
 // };
 
 // MeowMdRenderer 下次改成动态加载
-export default function MdPage() {
+export default function MdPage({ params }) {
+  const { id } = params;
+  const post = await getPostData(id);
   return (<>
   <p className="text-[32px]">dddd render</p>
   <Suspense fallback={<p>Loading...</p>}>

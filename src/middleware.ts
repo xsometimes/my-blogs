@@ -2,23 +2,29 @@ import { NextRequest, NextResponse } from 'next/server';
  
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith('/api')) {
+  // if (request.nextUrl.pathname.startsWith('/api')) {
 
-    const hostname = process.env.HOST
+  //   const hostname = process.env.HOST
 
-    const requestHeaders = new Headers(request.headers)
-    requestHeaders.set('host', hostname)
+  //   const requestHeaders = new Headers(request.headers)
+  //   requestHeaders.set('host', hostname)
 
-    let url = request.nextUrl.clone()
-    // url.protocol = 'https'
-    url.hostname = hostname
-    url.port = process.env.HOSTPORT
-    url.pathname = url.pathname.replace(/^\/api/, '');
+  //   let url = request.nextUrl.clone()
+  //   // url.protocol = 'https'
+  //   url.hostname = hostname
+  //   url.port = process.env.HOSTPORT
+  //   url.pathname = url.pathname.replace(/^\/api/, '');
 
-    return NextResponse.rewrite(url, {
-      headers: requestHeaders,
-    })
-  }
+  //   return NextResponse.rewrite(url, {
+  //     headers: requestHeaders,
+  //   })
+  // }
+  
+  // 认证授权
+  // const requestHeaders = request.headers;
+  // if (requestHeaders.get('x-forwarded-proto') === 'http') {
+  //   // 获取不到Authorization，就跳转到login
+  // }
 }
 
 
