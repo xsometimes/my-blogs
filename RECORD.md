@@ -53,3 +53,6 @@
 ls -la
 find . -name .DS_Store -type f -delete
 ```
+
+3. 常用命令
+- 性能分析： ANALYZE=true npm run build

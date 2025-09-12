@@ -19,6 +19,7 @@ const CORS_HEADERS = [
   },
 ];
 
+/** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'standalone',
@@ -49,4 +50,8 @@ const nextConfig: NextConfig = {
 
 };
 
-export default nextConfig;
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+module.exports = withBundleAnalyzer(nextConfig);

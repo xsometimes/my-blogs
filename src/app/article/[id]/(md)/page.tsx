@@ -60,13 +60,13 @@ export async function generateMetadata(
 // };
 
 // MeowMdRenderer 下次改成动态加载
-export default function MdPage({ params }) {
-  const { id } = params;
-  const post = await getPostData(id);
-  return (<>
-  <p className="text-[32px]">dddd render</p>
-  <Suspense fallback={<p>Loading...</p>}>
-          <MeowMdRenderer />
-        </Suspense>
-  </>);
-}
+// export default function MdPage({ params }) {
+//   const { id } = params;
+//   const post = await getPostData(id);
+//   return (<>
+//   <p className="text-[32px]">dddd render</p>
+//   <Suspense fallback={<p>Loading...</p>}>
+//           <MeowMdRenderer />
+//         </Suspense>
+//   </>);
+// }
